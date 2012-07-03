@@ -8,7 +8,7 @@ app.set('view engine', 'html');
 app.use(express.bodyParser());
 
 app.get('/', function(req, res) {
-	res.render('index', { title: 'Bot Challenge' });
+	res.render('index', { title: 'Bot Agitator' });
 });
 
 app.post('/player', function(req, res) {
