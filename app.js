@@ -12,7 +12,9 @@ app.get('/', function(req, res) {
 });
 
 app.post('/player', function(req, res) {
-	fs.writeFile('newPlayer.zip', Object.keys(req.body)[0], function(err) {
+	var playerFileContents = Object.keys(req.body)[0];
+
+	fs.writeFile('newPlayer.zip', playerFileContents, function(err) {
 		if(err) {
 			res.send(err);
 		}
