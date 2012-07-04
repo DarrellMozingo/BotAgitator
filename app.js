@@ -1,5 +1,5 @@
 var express = require('express');
-var fs = require('fs');
+var bot = require('./bot');
 
 var app = express.createServer();
 
@@ -12,16 +12,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/player', function(req, res) {
-	var playerFileContents = Object.keys(req.body)[0];
-
-	fs.writeFile('newPlayer.zip', playerFileContents, function(err) {
-		if(err) {
-			res.send(err);
-		}
-		else {
-			res.send('Received player.');
-		}
-	});
+	new bot().upload(req, res);
 });
 
 app.listen(8081);
